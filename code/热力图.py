@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""读取 output/请求统计_OD矩阵.csv，绘制 OD 矩阵热力图并输出 PNG。"""
+"""读取 output/question1_OD矩阵.csv，绘制 OD 矩阵热力图并输出 PNG。"""
 import os
 
 import matplotlib
@@ -13,7 +13,7 @@ import csv
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(os.path.dirname(HERE), "output", "question1_OD矩阵.csv")
-OUTPUT = os.path.join(os.path.dirname(HERE), "output", "OD矩阵热力图.png")
+OUTPUT = os.path.join(os.path.dirname(HERE), "output", "question1_OD矩阵热力图.png")
 
 # ---- 读取 OD 矩阵 CSV（去掉“合计”行/列）----
 with open(SRC, encoding="utf-8-sig", newline="") as f:
