@@ -12,7 +12,7 @@ import numpy as np
 import csv
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(os.path.dirname(HERE), "output", "请求统计_OD矩阵.csv")
+SRC = os.path.join(os.path.dirname(HERE), "output", "question1_OD矩阵.csv")
 OUTPUT = os.path.join(os.path.dirname(HERE), "output", "OD矩阵热力图.png")
 
 # ---- 读取 OD 矩阵 CSV（去掉“合计”行/列）----
