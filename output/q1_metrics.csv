@@ -1,0 +1,2 @@
+﻿total_aircraft_time_min,total_aircraft_time_hour,total_person_time_min,total_person_time_hour,total_flights,total_fuel_kg,seat_utilization,passenger_km,available_seat_km,total_refuels,lp_lower_bound_min,relative_gap,runtime_sec
+15061,251.01666666666668,131033,2183.883333333333,88,120920.1,0.4967781201262886,391794.0,788670.0,38,15041.0012185515,0.00132961770017231,100.91755604743958
