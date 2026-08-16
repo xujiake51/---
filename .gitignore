@@ -1,0 +1,19 @@
+# --- LaTeX 编译中间文件 ---
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.xdv
+*.synctex.gz
+*.synctex
+*.nav
+*.snm
+*.vrb
+*.run.xml
+*.bcf
