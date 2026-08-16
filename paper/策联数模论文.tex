@@ -165,13 +165,27 @@
 
 问题二加入海返与穿梭，同一架次既承载出海的到达又承载海返的出发，机上人数沿环游先减后增、不再单调，且每名人员须由同一架次直送终点、不得换乘，升级为带同时取送的 VRPSPD。其关键结构特征是：
 
-出海与海返高度配对：对问题二数据的预分析显示，各设施出海与海返人数之差落在 $[-4,+6]$、48/52 个设施在 $\pm3$ 以内，即“送去多少人、几乎接回多少人”。受此启发，把满座部分配对为往返架次，去程满载送达、返程满载接回，一个架次兼负两程、使架次数近乎减半；只有真正新增的穿梭客流与未配对的少量尾数需要额外运力。
+出海与海返高度配对：对问题二数据的预分析显示，各设施出海与海返人数之差落在 $[-4,+6]$、48/52 个设施在 $\pm3$ 以内（图~\ref{fig:q2netdiff}），即“送去多少人、几乎接回多少人”。受此启发，把满座部分配对为往返架次，去程满载送达、返程满载接回，一个架次兼负两程、使架次数近乎减半；只有真正新增的穿梭客流与未配对的少量尾数需要额外运力。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.60\textwidth]{问题二_净差直方图.png}
+  \caption{问题二各设施出海$-$海返净差分布（48/52 设施在 $\pm3$ 内，据此配对往返）}
+  \label{fig:q2netdiff}
+\end{figure}
 
 \subsection{问题三}
 
 问题三在问题二路由结构不变的基础上，叠加时间窗与有限机队两重约束，是 VRPTW 与机队调度的结合。其关键结构特征是：
 
-任务类型与窗口紧度高度相关：应急处置与增储上产共 400 人的窗口全部落在单天之内，最短者不足半小时，其航班被迫落在窗日、只能小群组直飞；常规倒班与临时任务共 3600 人的窗口跨 2--4 天，“哪天飞”才是真正的决策变量。据此把需求分为紧核 400 人与松壳 3600 人两层，前者单天固定、后者跨天可选，其求解顺序恰与题目“应急处置 $\to$ 增储上产 $\to$ 常规倒班 $\to$ 临时任务”的优先级一致。
+任务类型与窗口紧度高度相关：应急处置与增储上产共 400 人的窗口全部落在单天之内，最短者不足半小时，其航班被迫落在窗日、只能小群组直飞；常规倒班与临时任务共 3600 人的窗口跨 2--4 天，“哪天飞”才是真正的决策变量（图~\ref{fig:q3window}）。据此把需求分为紧核 400 人与松壳 3600 人两层，前者单天固定、后者跨天可选，其求解顺序恰与题目“应急处置 $\to$ 增储上产 $\to$ 常规倒班 $\to$ 临时任务”的优先级一致。
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.62\textwidth]{问题三_窗口时长箱线图.png}
+  \caption{问题三四类任务的运输时间窗时长分布（紧核单天 / 松壳跨天）}
+  \label{fig:q3window}
+\end{figure}
 
 % ============================================================
 %  三、模型假设
@@ -348,7 +362,7 @@
 
 \subsubsection{问题一的求解结果与指标分析}
 
-用上述模型与算法求解，得到问题一的完整运载计划，核心指标见表~\ref{tab:q1res}，航线网络见图~\ref{fig:q1net}，求解结果综合对比见图~\ref{fig:q1sum}。
+用上述模型与算法求解，得到问题一的完整运载计划，核心指标见表~\ref{tab:q1res}，航线网络见图~\ref{fig:q1net}。
 
 \begin{table}[H]
   \centering
@@ -375,15 +389,8 @@
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.62\textwidth]{问题一_航线网络图.png}
-  \caption{问题一航线网络（三机场分块，88 架次）}
+  \caption{问题一航线网络（三机场分块，88 架次；满座直飞细线、尾数环游粗线）}
   \label{fig:q1net}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.72\textwidth]{问题一_求解结果综合图.png}
-  \caption{问题一求解结果综合（架次结构、在途时间与利用率）}
-  \label{fig:q1sum}
 \end{figure}
 
 结果分析：总飞机使用时间为 15061 分钟（约 251.0 小时），由 88 个架次完成，平均每架次载客约 $1600/88\approx18.2$ 人。座位利用率为 49.68\%，反映出“满座份满载单飞 + 尾数份合并环游”的拆分策略在缩短总时间与提升利用率之间的折中。求解 gap 仅为 0.13\%（LP 下界 15041 分钟），说明所得整数解与理论下界几乎一致。总加油次数为 38 次，对应远端设施（尤其 A03 南端 F037$\sim$F052 段）超航程架次的中途加油需求。
@@ -477,7 +484,7 @@
 
 \subsubsection{问题二的求解结果与指标分析}
 
-用上述模型与算法求解，得到问题二的完整运载计划，核心指标见表~\ref{tab:q2res}，航线网络见图~\ref{fig:q2net}，求解结果综合对比见图~\ref{fig:q2sum}。
+用上述模型与算法求解，得到问题二的完整运载计划，核心指标见表~\ref{tab:q2res}，航线网络见图~\ref{fig:q2net}。
 
 \begin{table}[H]
   \centering
@@ -501,13 +508,6 @@
   \includegraphics[width=0.62\textwidth]{问题二_航线网络图.png}
   \caption{问题二航线网络（117 架次）}
   \label{fig:q2net}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.72\textwidth]{问题二_求解结果综合图.png}
-  \caption{问题二求解结果综合}
-  \label{fig:q2sum}
 \end{figure}
 
 结果分析：问题二总飞机使用时间为 23358 分钟，由 117 个架次完成，平均每架次载客约 $4000/117\approx34.2$ 人（含去程送达与返程接回），架次结构显著优于问题一“单程满座”的模式；座位利用率升至 73.01\%，正是“配对往返”使同一架次兼负两程、客座公里被充分利用的直接体现。穿梭 800 人全部顺路承载、未单独开辟架次，验证了“穿梭顺路承载”思路的有效性。
@@ -622,7 +622,7 @@
 
 \subsubsection{问题三的求解结果与指标分析}
 
-用上述模型与算法求解，得到问题三的完整运载计划，核心指标见表~\ref{tab:q3res}，机队排班见图~\ref{fig:q3fleet}，求解结果综合对比见图~\ref{fig:q3sum}。
+用上述模型与算法求解，得到问题三的完整运载计划，核心指标见表~\ref{tab:q3res}，机队排班见图~\ref{fig:q3fleet}。
 
 \begin{table}[H]
   \centering
@@ -649,15 +649,8 @@
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.72\textwidth]{问题三_机队排班图.png}
-  \caption{问题三机队排班（24 架飞机 7 日）}
+  \caption{问题三机队排班（22 架飞机 7 日，不含兜底备用架次）}
   \label{fig:q3fleet}
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.72\textwidth]{问题三_求解结果综合图.png}
-  \caption{问题三求解结果综合（指标与临时任务满足情况）}
-  \label{fig:q3sum}
 \end{figure}
 
 结果分析：问题三总飞机使用时间为 48060 分钟（阶段一非临时与阶段二总航时相同，即临时任务全部“顺路插入”未额外增加航时），由 248 个架次完成。座位利用率降至 37.16\%，是时间窗与有限机队双重约束下的必然结果：为满足紧时间窗，大量架次被迫小群组直飞甚至空驶返场。临时任务 160 人中满足 148 人、满足率 92.5\%，仅 12 人因无法在不增加航时的情况下插入而被取消，两阶段策略在“尽可能满足临时需求”与“不增加总开销”之间取得了较好平衡。
@@ -690,7 +683,8 @@
   \item \textbf{LAND 分配的固定}：问题一将 LAND 乘客按设施分块固定归属机场，当不同机场到同一设施距离差异显著时可能非最优。更精细的做法是把 LAND 分配纳入决策，引入整数变量 $z_{d,a}$，与 $\min\sum_a\mathrm{VSP}(a)$ 合并为整体 IP，此时三机场通过 $z_{d,a}$ 耦合、需采用列生成与分支定价；
   \item \textbf{拆分粒度的残差}：机型感知拆分把尾数份视为原子，损失了“尾数份二次拆分”的合并自由度，但二次拆分通常多出一个架次、影响很小；
   \item \textbf{整数解的近似性}：问题二、三的整数解由受限主问题分支定界给出，非完整 branch-and-price，是最优性 gap 可报告的启发式上界；
-  \item \textbf{天内排班的离散近似}：时间索引 ILP 以步长 $\Delta$ 离散时刻，步长越小越精确但变量越多，需在精度与规模间折中。
+  \item \textbf{天内排班的离散近似}：时间索引 ILP 以步长 $\Delta$ 离散时刻，步长越小越精确但变量越多，需在精度与规模间折中；
+  \item \textbf{日内排班的兜底备用架次}：问题三主排班启发式在 30 名非临时人员出现日内冲突时，以「备用」飞机编号生成 30 个单人补充架次（对应 21 架备用飞机），实质放松了「24 架飞机」的机队约束。更严格的做法是将其并入天内排班 ILP 一并精确求解，而非事后兜底。
 \end{enumerate}
 
 % ============================================================
@@ -721,8 +715,8 @@
   \item 数据文件：\texttt{distances.csv}、\texttt{peopleQ1.csv}、\texttt{peopleQ2.csv}、\texttt{peopleQ3.csv}（赛题提供）；
   \item 结果文件：\texttt{q1-routes.csv}、\texttt{q1-assignments.csv}、\texttt{q2-routes.csv}、\texttt{q2-assignments.csv}、\texttt{q3-routes.csv}、\texttt{q3-assignments.csv}；
   \item 求解程序：\texttt{q1\_solver.py}、\texttt{q2\_solver.py}、\texttt{q3\_solver.py}、\texttt{q23\_common.py}（问题二、三共用模块）；
-  \item 数据探针与可视化：\texttt{列数探针.py}、\texttt{探针Q1.py}、\texttt{探针Q2.py}、\texttt{探针Q2\_full.py}、\texttt{统计请求.py}、\texttt{热力图.py}；
-  \item 可视化图片：\texttt{问题一\_航线网络图.png}、\texttt{问题一\_求解结果综合图.png}、\texttt{问题二\_航线网络图.png}、\texttt{问题二\_求解结果综合图.png}、\texttt{问题三\_机队排班图.png}、\texttt{问题三\_求解结果综合图.png} 等；
+  \item 数据探针与可视化：\texttt{列数探针.py}、\texttt{探针Q1.py}、\texttt{探针Q2.py}、\texttt{探针Q2\_full.py}、\texttt{统计请求.py}、\texttt{热力图.py}，以及 \texttt{viz/} 目录下 6 个独立绘图脚本（\texttt{plot\_od\_heatmap.py}、\texttt{plot\_q1\_network.py}、\texttt{plot\_q2\_netdiff.py}、\texttt{plot\_q2\_network.py}、\texttt{plot\_q3\_window.py}、\texttt{plot\_q3\_fleet.py}，均直接读取结果 CSV 出图、不依赖求解器）；
+  \item 可视化图片：\texttt{question1\_OD矩阵热力图.png}、\texttt{问题一\_航线网络图.png}、\texttt{问题二\_净差直方图.png}、\texttt{问题二\_航线网络图.png}、\texttt{问题三\_窗口时长箱线图.png}、\texttt{问题三\_机队排班图.png} 等；
   \item AI 工具使用详情：\texttt{AI 工具使用详情.pdf}。
 \end{enumerate}
 
