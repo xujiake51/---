@@ -8,9 +8,9 @@ import os
 import pandas as pd
 from matplotlib import pyplot as plt
 
-from viz_common import ATTACH_DIR, CODE_DIR, INK, MUTED, GRID, setup_font
+from viz_common import ATTACH_DIR, FIGURES_DIR, INK, MUTED, GRID, setup_font
 
-OUTPUT = os.path.join(CODE_DIR, "问题三_窗口时长箱线图.png")
+OUTPUT = os.path.join(FIGURES_DIR, "问题三_窗口时长箱线图.png")
 
 # 任务类型显示名（按题面优先级顺序）
 TASK_NAMES = [("emergency", "应急处置"), ("production", "增储上产"),

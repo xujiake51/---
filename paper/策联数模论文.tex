@@ -25,8 +25,8 @@
 \usepackage{xcolor}
 \usepackage[hidelinks]{hyperref}
 
-% 图片路径：Q1 图在 output，Q2/Q3 图在 code
-\graphicspath{{../output/}{../code/}}
+% 图片路径：所有插图统一放在 paper/figures/
+\graphicspath{{figures/}}
 
 % ---------------- 标题层级 ----------------
 \ctexset{
@@ -715,7 +715,7 @@
   \item 数据文件：\texttt{distances.csv}、\texttt{peopleQ1.csv}、\texttt{peopleQ2.csv}、\texttt{peopleQ3.csv}（赛题提供）；
   \item 结果文件：\texttt{q1-routes.csv}、\texttt{q1-assignments.csv}、\texttt{q2-routes.csv}、\texttt{q2-assignments.csv}、\texttt{q3-routes.csv}、\texttt{q3-assignments.csv}；
   \item 求解程序：\texttt{q1\_solver.py}、\texttt{q2\_solver.py}、\texttt{q3\_solver.py}、\texttt{q23\_common.py}（问题二、三共用模块）；
-  \item 数据探针与可视化：\texttt{列数探针.py}、\texttt{探针Q1.py}、\texttt{探针Q2.py}、\texttt{探针Q2\_full.py}、\texttt{统计请求.py}、\texttt{热力图.py}，以及 \texttt{viz/} 目录下 6 个独立绘图脚本（\texttt{plot\_od\_heatmap.py}、\texttt{plot\_q1\_network.py}、\texttt{plot\_q2\_netdiff.py}、\texttt{plot\_q2\_network.py}、\texttt{plot\_q3\_window.py}、\texttt{plot\_q3\_fleet.py}，均直接读取结果 CSV 出图、不依赖求解器）；
+  \item 数据探针与可视化：探针脚本 \texttt{统计请求.py}，以及 \texttt{viz/} 目录下的公共绘图模块 \texttt{viz\_common.py} 与 6 个独立绘图脚本（\texttt{plot\_od\_heatmap.py}、\texttt{plot\_q1\_network.py}、\texttt{plot\_q2\_netdiff.py}、\texttt{plot\_q2\_network.py}、\texttt{plot\_q3\_window.py}、\texttt{plot\_q3\_fleet.py}，均直接读取结果 CSV 出图、不依赖求解器）；
   \item 可视化图片：\texttt{question1\_OD矩阵热力图.png}、\texttt{问题一\_航线网络图.png}、\texttt{问题二\_净差直方图.png}、\texttt{问题二\_航线网络图.png}、\texttt{问题三\_窗口时长箱线图.png}、\texttt{问题三\_机队排班图.png} 等；
   \item AI 工具使用详情：\texttt{AI 工具使用详情.pdf}。
 \end{enumerate}

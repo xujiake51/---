@@ -9,10 +9,10 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from matplotlib.patches import Patch
 
-from viz_common import (CODE_DIR, AIRPORT_COLORS, BLOCKS, FACILITIES,
+from viz_common import (CODE_DIR, FIGURES_DIR, AIRPORT_COLORS, BLOCKS, FACILITIES,
                         INK, MUTED, load_distance_df, classical_mds, setup_font)
 
-OUTPUT = os.path.join(CODE_DIR, "问题二_航线网络图.png")
+OUTPUT = os.path.join(FIGURES_DIR, "问题二_航线网络图.png")
 
 
 def main():

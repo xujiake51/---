@@ -13,6 +13,7 @@ VIZ_DIR = os.path.dirname(os.path.abspath(__file__))
 CODE_DIR = os.path.dirname(VIZ_DIR)
 ROOT = os.path.dirname(CODE_DIR)
 OUTPUT_DIR = os.path.join(ROOT, "output")
+FIGURES_DIR = os.path.join(ROOT, "paper", "figures")
 
 
 def find_attach_dir():

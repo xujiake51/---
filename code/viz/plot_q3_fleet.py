@@ -9,9 +9,9 @@ import pandas as pd
 import matplotlib.dates as mdates
 from matplotlib import pyplot as plt
 
-from viz_common import CODE_DIR, AIRPORT_COLORS, INK, MUTED, GRID, setup_font
+from viz_common import CODE_DIR, FIGURES_DIR, AIRPORT_COLORS, INK, MUTED, GRID, setup_font
 
-OUTPUT = os.path.join(CODE_DIR, "问题三_机队排班图.png")
+OUTPUT = os.path.join(FIGURES_DIR, "问题三_机队排班图.png")
 
 AIRPORT_ORDER = {"A01": 0, "A02": 1, "A03": 2}
 TYPE_ORDER = {"T1": 0, "T2": 1, "T3": 2}

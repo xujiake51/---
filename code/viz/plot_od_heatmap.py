@@ -8,10 +8,10 @@ from matplotlib import pyplot as plt
 import matplotlib.colors as mcolors
 import numpy as np
 
-from viz_common import OUTPUT_DIR, SEQ_BLUE, INK, MUTED, GRID, setup_font
+from viz_common import OUTPUT_DIR, FIGURES_DIR, SEQ_BLUE, INK, MUTED, GRID, setup_font
 
 SRC = os.path.join(OUTPUT_DIR, "question1_OD矩阵.csv")
-OUTPUT = os.path.join(OUTPUT_DIR, "question1_OD矩阵热力图.png")
+OUTPUT = os.path.join(FIGURES_DIR, "question1_OD矩阵热力图.png")
 
 
 def main():

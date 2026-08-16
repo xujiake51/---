@@ -10,10 +10,10 @@ from matplotlib import pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.lines import Line2D
 
-from viz_common import (OUTPUT_DIR, AIRPORT_COLORS, FACILITIES, BLOCKS,
+from viz_common import (OUTPUT_DIR, FIGURES_DIR, AIRPORT_COLORS, FACILITIES, BLOCKS,
                         INK, MUTED, load_distance_df, classical_mds, setup_font)
 
-OUTPUT = os.path.join(OUTPUT_DIR, "问题一_航线网络图.png")
+OUTPUT = os.path.join(FIGURES_DIR, "问题一_航线网络图.png")
 
 # 满座直飞 / 尾数环游 的线型
 FULL_LW, FULL_ALPHA = 0.7, 0.45

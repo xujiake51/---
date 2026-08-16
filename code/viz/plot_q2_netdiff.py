@@ -11,9 +11,9 @@ import numpy as np
 from matplotlib import pyplot as plt
 import matplotlib.colors as mcolors
 
-from viz_common import ATTACH_DIR, CODE_DIR, FACILITIES, DIVERGING, INK, MUTED, GRID, setup_font
+from viz_common import ATTACH_DIR, FIGURES_DIR, FACILITIES, DIVERGING, INK, MUTED, GRID, setup_font
 
-OUTPUT = os.path.join(CODE_DIR, "问题二_净差直方图.png")
+OUTPUT = os.path.join(FIGURES_DIR, "问题二_净差直方图.png")
 LAND = {"LAND", "A01", "A02", "A03"}
 
 
